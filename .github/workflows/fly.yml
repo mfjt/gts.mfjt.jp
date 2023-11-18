@@ -1,0 +1,32 @@
+name: Fly Deploy
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    name: Deploy app
+    runs-on: ubuntu-latest
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Config Validate
+        run: flyctl config validate -a ${{ vars.APP }}
+      - name: Deploy
+        if: ${{ github.event_name == 'push' }}
+        run: >
+          flyctl deploy
+          -a ${{ vars.APP }}
+          -e GTS_DB_ADDRESS=${{ vars.GTS_DB_ADDRESS }}
+          -e GTS_DB_USER=${{ vars.GTS_DB_USER }}
+          -e GTS_STORAGE_S3_ACCESS_KEY=${{ vars.GTS_STORAGE_S3_ACCESS_KEY }}
+          -e GTS_STORAGE_S3_BUCKET=${{ vars.GTS_STORAGE_S3_BUCKET }}
+          -e GTS_STORAGE_S3_ENDPOINT=${{ vars.GTS_STORAGE_S3_ENDPOINT }}
+          -e GTS_STORAGE_S3_SECRET_KEY=${{ secrets.GTS_STORAGE_S3_SECRET_KEY }}
+          --remote-only
+
