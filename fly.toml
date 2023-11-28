@@ -1,11 +1,9 @@
 kill_signal = "SIGINT"
 kill_timeout = 5
+swap_size_mb = 256
 
 [build]
   image = "superseriousbusiness/gotosocial:0.12.2"
-
-[deploy]
-  strategy = "canary"
 
 [env]
    GTS_LOG_TIMESTAMP_FORMAT = "2006-01-02T15:04:05.999999999Z07:00"
@@ -25,8 +23,8 @@ kill_timeout = 5
   force_https = true
 
   [[http_service.checks]]
-    grace_period = "30s"
-    interval = "300s"
+    grace_period = "10s"
+    interval = "60s"
     method = "GET"
     timeout = "5s"
     path = "/about"
