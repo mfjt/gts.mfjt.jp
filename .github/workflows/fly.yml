@@ -8,13 +8,10 @@ jobs:
   deploy:
     name: Deploy app
     runs-on: ubuntu-latest
-    env:
-      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: Deploy
-        run: >
+      - run: >
           flyctl deploy
           -a ${{ vars.APP }}
           -e GTS_DB_ADDRESS=${{ vars.GTS_DB_ADDRESS }}
@@ -24,4 +21,6 @@ jobs:
           -e GTS_STORAGE_S3_ENDPOINT=${{ vars.GTS_STORAGE_S3_ENDPOINT }}
           -e GTS_STORAGE_S3_SECRET_KEY=${{ secrets.GTS_STORAGE_S3_SECRET_KEY }}
           --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
