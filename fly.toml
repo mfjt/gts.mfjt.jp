@@ -1,6 +1,6 @@
 kill_signal = "SIGINT"
 kill_timeout = 5
-swap_size_mb = 256
+swap_size_mb = 512
 
 [build]
   image = "superseriousbusiness/gotosocial:0.12.2"
