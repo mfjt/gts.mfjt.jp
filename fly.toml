@@ -31,5 +31,5 @@ swap_size_mb = 512
     path = "/about"
 
 [metrics]
-  port = 80
+  port = 8080
   path = "/metrics"
