@@ -12,7 +12,6 @@ swap_size_mb = 512
   GTS_INSTANCE_LANGUAGES = "ja-jp"
   GTS_INSTANCE_FEDERATION_SPAM_FILTER = "true"
   GTS_STORAGE_BACKEND = "s3"
-  GTS_STORAGE_S3_REDIRECT_URL = "https://gts-storage.mfjt.jp"
   GTS_METRICS_ENABLED = "true"
   GTS_REQUEST_ID_HEADER = "Fly-Request-Id"
   TZ = "Asia/Tokyo"
