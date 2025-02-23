@@ -1,7 +1,7 @@
 swap_size_mb = 512
 
 [build]
-  image = "superseriousbusiness/gotosocial:0.17.4"
+  image = "superseriousbusiness/gotosocial:latest"
 
 [env]
   GTS_LOG_TIMESTAMP_FORMAT = "2006-01-02T15:04:05.000Z07:00"
