@@ -1,4 +1,5 @@
-swap_size_mb = 512
+primary_region = "nrt"
+swap_size_mb = 1024
 
 [build]
   image = "superseriousbusiness/gotosocial:latest"
@@ -22,6 +23,10 @@ swap_size_mb = 512
 
   [[http_service.checks]]
     path = "/readyz"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
 
 [metrics]
   port = 8080
