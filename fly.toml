@@ -2,7 +2,7 @@ primary_region = "nrt"
 swap_size_mb = 1024
 
 [build]
-  image = "superseriousbusiness/gotosocial:latest"
+  image = "superseriousbusiness/gotosocial:0.18.1"
 
 [env]
   GTS_LOG_TIMESTAMP_FORMAT = "2006-01-02T15:04:05.000Z07:00"
